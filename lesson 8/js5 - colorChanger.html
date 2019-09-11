@@ -7,7 +7,7 @@
         #myBox {
             width: 200px;
             height: 200px;
-            background-color: red;
+            
         }
 
         button {
@@ -25,7 +25,14 @@
 
     <script>
 
-       
+        let myBox = document.getElementById("myBox");
+        myBox.style.backgroundColor = "red";
+
+        if (myBox.style.backgroundColor == "red") {
+            alert("HEY it's red");
+        } else {
+            alert("HEY it's some other color");
+        }
     </script>
 </body>
 </html>
