@@ -42,11 +42,29 @@
         for (let i = 0; i < buttons.length; i++) {
             let button = buttons[i];
             button.addEventListener("click", function() {
-                alert(this.innerHTML);
+                let letter = this.innerHTML;
+                
+                letter = letter.toLowerCase();
+                hangman.playLetter(letter);
+                updateScreen();
+
+                // check if the user won or lost
             });
         }
 
+        // START THE GAME BY CREATING AN INSTANCE OF THE HANGMAN CLASS
 
+        let hangman = new Hangman();
+        updateScreen();
+
+        // FUNCTIONS
+
+        function updateScreen() {
+            let phraseBox = document.getElementById("phraseBox");
+            let livesBox = document.getElementById("livesBox");
+            phraseBox.innerHTML = hangman.gamePhrase;
+            livesBox.innerHTML = "Lives: " + hangman.lives;
+        }
 
 
         // 1 - show the gamePhrase on the screen
@@ -55,7 +73,12 @@
         // 4 - tell the user when he wins or loses
         // 5 - update the Hangman class so it takes new words in the constructor
         // 6 - whatever else you think of...
+
     </script>
+
+
+
+    
 
 </body>
 

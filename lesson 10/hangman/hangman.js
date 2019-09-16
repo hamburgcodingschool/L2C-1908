@@ -7,7 +7,7 @@ class Hangman {
 
     constructor() {
         this.lives = 6;
-        this.secretPhrase = "Gotham City";
+        this.secretPhrase = "Götham City";
         this.gamePhrase = "------ ----";
     }
 
@@ -17,7 +17,8 @@ class Hangman {
         for (let i = 0; i < this.secretPhrase.length; i++) {
             let secretLetter = this.secretPhrase[i];
 
-            if (secretLetter == userLetter) {
+            // if (secretLetter == userLetter) {
+            if (secretLetter.localeCompare(userLetter, "en", {sensitivity: "base"}) == 0) {
                 this.gamePhrase  = replaceStringAtPos(this.gamePhrase, i, secretLetter);
                 letterExists = true;
             }
